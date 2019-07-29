@@ -6,6 +6,13 @@ function _defaultValue(val, msg, level) {
 }
 
 const defaultValue = (val, msg, level) => Promise.reject(new _defaultValue(val, msg, level));
+const unfoldReducers = (reducers, logger) => () => reducers.catch(catcher(logger))
+const mapValues = (obj, mapper) => Object.entries(obj)
+    .reduce((obj, [key, val]) => ({
+        ...obj,
+        [key]: mapper(val),
+    }), {})
+
 
 const logIfMsg = (e, logger) => {
     if (!e.msg) {
@@ -25,13 +32,6 @@ const catcher = logger => (e) => {
 
     return Promise.resolve(e.val);
 }
-
-const unfoldReducers = (reducers, logger) => () => reducers.catch(catcher(logger))
-const mapValues = (obj, mapper) => Object.entries(obj)
-    .reduce((obj, [key, val]) => ({
-        ...obj,
-        [key]: mapper(val),
-    }), {})
 
 const fluent = (userHandlers, logger = console) => {
     const sequencer = (reducers = Promise.resolve()) => ({
