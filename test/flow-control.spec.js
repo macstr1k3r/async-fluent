@@ -19,12 +19,14 @@ describe('Flow control capabilities', () => {
                 .failingReducer() // exit point
                 .build()
         ).rejects.toEqual(new Error('boooom!'));
+
         await expect(
             job.addFirstName()
                 .failingReducer() // exit point
                 .addLastName()
                 .build()
         ).rejects.toEqual(new Error('boooom!'));
+
         await expect(
             job.failingReducer() // exit point
                 .addLastName()

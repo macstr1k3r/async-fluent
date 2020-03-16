@@ -1,18 +1,18 @@
 {
-  "name": "fluent",
-  "version": "0.0.1",
-  "description": "",
+  "name": "async-fluent",
+  "version": "0.1.0",
+  "description": "A library that lets you chain async functions",
   "main": "index.js",
   "scripts": {
-    "test": "./node_modules/.bin/jest test/*.spec.js --coverage"
+    "test": "jest test/*.spec.js --coverage"
   },
-  "author": "",
-  "license": "ISC",
+  "author": "Darko Stojkovski",
+  "license": "MIT",
   "devDependencies": {
-    "@types/faker": "^4.1.5",
-    "@types/jest": "^24.0.15",
-    "@types/node": "^12.6.8",
+    "@types/faker": "^4.1.10",
+    "@types/jest": "^25.1.4",
+    "@types/node": "^13.9.1",
     "faker": "^4.1.0",
-    "jest": "^24.8.0"
+    "jest": "^25.1.0"
   }
 }
